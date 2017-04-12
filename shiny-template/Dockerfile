@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y  \
     libssl-dev \
     
 # install the shiny server debian package from r-studio
-COPY ./shiny-server-1.5.2.837-amd64.deb /tmp/ss.deb
-RUN gdebi -n /tmp/ss.deb && \
-    rm -f /tmp/ss.deb
+RUN wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-1.5.3.838-amd64.deb" -O ss-latest.deb && \
+    gdebi -n ss-latest.deb && \
+    rm -f ss-latest.deb 
 
 COPY ./shiny-server.sh /usr/bin/shiny-server.sh
 RUN chmod +x /usr/bin/shiny-server.sh
