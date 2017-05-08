@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install -y  \
     sudo \
     git \
     libssl-dev \
+    libcairo2-dev \
+    libxt-dev \
+    libxml2-dev \
+    libgsl0-dev \
     gdebi
     
 # install the shiny server debian package from r-studio
